@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hotel Donation Portal - DTH</title>
+
+<style>
+
+/* =========================
+   DTH NAVY THEME (#191C4C)
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#F5F7FB;
+  color:#191C4C;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  width:100%;
+  height:320px;
+  background-image:url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:linear-gradient(
+    135deg,
+    rgba(25,28,76,0.92),
+    rgba(42,47,107,0.75)
+  );
+}
+
+.hero-content{
+  position:relative;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+
+.hero-logo{
+  height:70px;
+  background:white;
+  padding:10px;
+  border-radius:12px;
+  margin-bottom:15px;
+  border:2px solid #191C4C;
+}
+
+.hero h1{
+  font-size:44px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#d7dbff;
+  font-size:18px;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1300px;
+  margin:auto;
+  padding:30px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+/* SECTION TITLE */
+.section-title{
+  margin-bottom:20px;
+  font-size:28px;
+  color:#191C4C;
+}
+
+/* CARDS */
+.card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #e6e9f5;
+  box-shadow:0 8px 20px rgba(25,28,76,0.10);
+  margin-bottom:25px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(25,28,76,0.16);
+}
+
+.card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:22px;
+}
+
+.item-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.item-header h3{
+  color:#191C4C;
+  font-size:22px;
+}
+
+/* QTY BADGE */
+.badge{
+  background:#191C4C;
+  color:#FFFFFF;
+  padding:7px 14px;
+  border-radius:999px;
+  font-weight:bold;
+  font-size:13px;
+}
+
+/* FORM */
+.form-container{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  border:1px solid #e6e9f5;
+  box-shadow:0 8px 20px rgba(25,28,76,0.08);
+  height:fit-content;
+}
+
+.form-container h2{
+  margin-bottom:20px;
+  color:#191C4C;
+  font-size:28px;
+}
+
+label{
+  font-size:14px;
+  font-weight:bold;
+  color:#191C4C;
+  display:block;
+  margin-bottom:6px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #d9def2;
+  background:#fdfdff;
+  margin-bottom:14px;
+  font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none;
+  border:1px solid #191C4C;
+  box-shadow:0 0 0 3px rgba(25,28,76,0.15);
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  background:#191C4C;
+  color:white;
+  padding:15px;
+  border:none;
+  border-radius:14px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#2A2F6B;
+}
+
+/* TABLE */
+.table-section{
+  background:#fff;
+  margin-top:35px;
+  padding:30px;
+  border-radius:20px;
+  border:1px solid #e6e9f5;
+  box-shadow:0 8px 20px rgba(25,28,76,0.08);
+}
+
+.table-section h2{
+  color:#191C4C;
+  margin-bottom:15px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:18px;
+}
+
+thead{
+  background:#191C4C;
+  color:white;
+}
+
+th,
+td{
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid #e6e9f5;
+}
+
+/* STATUS BADGES */
+.status{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.pending{
+  background:orange;
+  color:white;
+}
+
+.approved{
+  background:#191C4C;
+  color:white;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .container{
+    padding:20px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+
+  <div class="hero-content">
+
+    <!-- LOCAL LOGO -->
+    <img
+      class="hero-logo"
+      src="file:///C:/DTH/DTH.png"
+      alt="DTH Logo"
+    >
+
+    <h1>Hotel Donation Portal</h1>
+
+    <p>
+      DoubleTree by Hilton - Sustainability & Community Sharing
+    </p>
+
+  </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <div class="grid">
+
+    <!-- LEFT -->
+    <div>
+
+      <h2 class="section-title">
+        Available Donation Items
+      </h2>
+
+      <!-- CARD 1 -->
+      <div class="card">
+
+        <img
+          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop"
+          alt="Hotel Linen"
+        >
+
+        <div class="card-content">
+
+          <div class="item-header">
+
+            <h3>Hotel Linen Set</h3>
+
+            <div class="badge">
+              Qty: 120
+            </div>
+
+          </div>
+
+          <p>
+            Bedsheets, pillow covers, towels in good condition.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+
+        <img
+          src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop"
+          alt="Wooden Hangers"
+        >
+
+        <div class="card-content">
+
+          <div class="item-header">
+
+            <h3>Wooden Hangers</h3>
+
+            <div class="badge">
+              Qty: 350
+            </div>
+
+          </div>
+
+          <p>
+            Premium hotel-grade wooden hangers.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+
+        <img
+          src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop"
+          alt="Table Lamps"
+        >
+
+        <div class="card-content">
+
+          <div class="item-header">
+
+            <h3>Table Lamps</h3>
+
+            <div class="badge">
+              Qty: 20
+            </div>
+
+          </div>
+
+          <p>
+            Warm hotel bedside lamps.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="form-container">
+
+      <h2>Organisation Registration</h2>
+
+      <form onsubmit="submitForm(event)">
+
+        <label>Organisation Name</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Phone</label>
+        <input type="text" required>
+
+        <label>Select Item</label>
+
+        <select required>
+          <option>Hotel Linen Set</option>
+          <option>Wooden Hangers</option>
+          <option>Table Lamps</option>
+        </select>
+
+        <label>Quantity</label>
+        <input type="number" required>
+
+        <label>Purpose</label>
+
+        <textarea rows="4"></textarea>
+
+        <button type="submit">
+          Submit Interest
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-section">
+
+    <h2>Interested Organisations</h2>
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Organisation</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Contact</th>
+          <th>Status</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Helping Hands</td>
+          <td>Hotel Linen Set</td>
+          <td>40</td>
+          <td>Don Lim</td>
+          <td>
+            <span class="status pending">
+              Pending
+            </span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Community Care SG</td>
+          <td>Wooden Hangers</td>
+          <td>100</td>
+          <td>Daniel Tan</td>
+          <td>
+            <span class="status approved">
+              Approved
+            </span>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+<script>
+
+function submitForm(e){
+
+  e.preventDefault();
+
+  alert("Interest submitted successfully!");
+
+}
+
+</script>
+
+</body>
+</html>
